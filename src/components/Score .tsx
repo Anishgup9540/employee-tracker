@@ -8,15 +8,8 @@ const Score = () => {
     const dispatch = useDispatch();
     const user = useSelector((state: RootState) => state.auth.currentUser);
 
-    const defaultMetrics = {
-        callsHandled: 0,
-        customerSatisfaction: 0,
-        responseTime: "",
-        closedTickets: 0,
-    };
-
     const [isEditing, setIsEditing] = useState(false);
-    const [metrics, setMetrics] = useState(user?.performanceMetrics || defaultMetrics);
+    const [metrics, setMetrics] = useState(user?.performanceMetrics || {});
     const [userScore, setUserScore] = useState(user?.score || 0);
 
     if (!user) {
@@ -27,7 +20,7 @@ const Score = () => {
         const { name, value } = e.target;
         setMetrics({
             ...metrics,
-            [name]: name === "customerSatisfaction" || name === "callsHandled" || name === "closedTickets"
+            [name]: name.includes("Score") || name.includes("Percentage") || name === "callsHandled" || name === "customerSatisfaction" || name === "closedTickets"
                 ? parseInt(value)
                 : value,
         });
@@ -79,7 +72,7 @@ const Score = () => {
                                 <input
                                     type="number"
                                     name="callsHandled"
-                                    value={metrics.callsHandled}
+                                    value={metrics.callsHandled || 0}
                                     onChange={handleChange}
                                 />
                             </p>
@@ -88,7 +81,7 @@ const Score = () => {
                                 <input
                                     type="number"
                                     name="customerSatisfaction"
-                                    value={metrics.customerSatisfaction}
+                                    value={metrics.customerSatisfaction || 0}
                                     onChange={handleChange}
                                 />
                             </p>
@@ -97,7 +90,7 @@ const Score = () => {
                                 <input
                                     type="text"
                                     name="responseTime"
-                                    value={metrics.responseTime}
+                                    value={metrics.responseTime || ""}
                                     onChange={handleChange}
                                 />
                             </p>
@@ -106,7 +99,133 @@ const Score = () => {
                                 <input
                                     type="number"
                                     name="closedTickets"
-                                    value={metrics.closedTickets}
+                                    value={metrics.closedTickets || 0}
+                                    onChange={handleChange}
+                                />
+                            </p>
+                            <p>
+                                <strong>Leetcode Score:</strong>{" "}
+                                <input
+                                    type="number"
+                                    name="leetcodeScore"
+                                    value={metrics.leetcodeScore || 0}
+                                    onChange={handleChange}
+                                />
+                            </p>
+                            <p>
+                                <strong>Hackerrank Score:</strong>{" "}
+                                <input
+                                    type="number"
+                                    name="hackerrankScore"
+                                    value={metrics.hackerrankScore || 0}
+                                    onChange={handleChange}
+                                />
+                            </p>
+                            <p>
+                                <strong>Week 1 Score:</strong>{" "}
+                                <input
+                                    type="number"
+                                    name="week1Score"
+                                    value={metrics.week1Score || 0}
+                                    onChange={handleChange}
+                                />
+                            </p>
+                            <p>
+                                <strong>Week 2 Score:</strong>{" "}
+                                <input
+                                    type="number"
+                                    name="week2Score"
+                                    value={metrics.week2Score || 0}
+                                    onChange={handleChange}
+                                />
+                            </p>
+                            <p>
+                                <strong>Week 3 Score:</strong>{" "}
+                                <input
+                                    type="number"
+                                    name="week3Score"
+                                    value={metrics.week3Score || 0}
+                                    onChange={handleChange}
+                                />
+                            </p>
+                            <p>
+                                <strong>Assignment 1 Percentage:</strong>{" "}
+                                <input
+                                    type="number"
+                                    name="assignment1Percentage"
+                                    value={metrics.assignment1Percentage || 0}
+                                    onChange={handleChange}
+                                />
+                            </p>
+                            <p>
+                                <strong>Assignment 2 Percentage:</strong>{" "}
+                                <input
+                                    type="number"
+                                    name="assignment2Percentage"
+                                    value={metrics.assignment2Percentage || 0}
+                                    onChange={handleChange}
+                                />
+                            </p>
+                            <p>
+                                <strong>Assignment 3 Percentage:</strong>{" "}
+                                <input
+                                    type="number"
+                                    name="assignment3Percentage"
+                                    value={metrics.assignment3Percentage || 0}
+                                    onChange={handleChange}
+                                />
+                            </p>
+                            <p>
+                                <strong>EF Test Score:</strong>{" "}
+                                <input
+                                    type="number"
+                                    name="EFTestScore"
+                                    value={metrics.EFTestScore || 0}
+                                    onChange={handleChange}
+                                />
+                            </p>
+                            <p>
+                                <strong>Learning Certificates Done:</strong>{" "}
+                                <input
+                                    type="text"
+                                    name="learningCertificatesDone"
+                                    value={metrics.learningCertificatesDone?.join(", ") || ""}
+                                    onChange={handleChange}
+                                />
+                            </p>
+                            <p>
+                                <strong>Courses Completed:</strong>{" "}
+                                <input
+                                    type="text"
+                                    name="coursesCompleted"
+                                    value={metrics.coursesCompleted?.join(", ") || ""}
+                                    onChange={handleChange}
+                                />
+                            </p>
+                            <p>
+                                <strong>Mock Evaluation 1 Score:</strong>{" "}
+                                <input
+                                    type="number"
+                                    name="mockEvaluation1Score"
+                                    value={metrics.mockEvaluation1Score || 0}
+                                    onChange={handleChange}
+                                />
+                            </p>
+                            <p>
+                                <strong>Mock Evaluation 2 Score:</strong>{" "}
+                                <input
+                                    type="number"
+                                    name="mockEvaluation2Score"
+                                    value={metrics.mockEvaluation2Score || 0}
+                                    onChange={handleChange}
+                                />
+                            </p>
+                            <p>
+                                <strong>Mock Evaluation 3 Score:</strong>{" "}
+                                <input
+                                    type="number"
+                                    name="mockEvaluation3Score"
+                                    value={metrics.mockEvaluation3Score || 0}
                                     onChange={handleChange}
                                 />
                             </p>
@@ -117,6 +236,20 @@ const Score = () => {
                             <p><strong>Customer Satisfaction:</strong> {metrics.customerSatisfaction}%</p>
                             <p><strong>Avg. Response Time:</strong> {metrics.responseTime}</p>
                             <p><strong>Closed Tickets:</strong> {metrics.closedTickets}</p>
+                            <p><strong>Leetcode Score:</strong> {metrics.leetcodeScore}</p>
+                            <p><strong>Hackerrank Score:</strong> {metrics.hackerrankScore}</p>
+                            <p><strong>Week 1 Score:</strong> {metrics.week1Score}</p>
+                            <p><strong>Week 2 Score:</strong> {metrics.week2Score}</p>
+                            <p><strong>Week 3 Score:</strong> {metrics.week3Score}</p>
+                            <p><strong>Assignment 1 Percentage:</strong> {metrics.assignment1Percentage}%</p>
+                            <p><strong>Assignment 2 Percentage:</strong> {metrics.assignment2Percentage}%</p>
+                            <p><strong>Assignment 3 Percentage:</strong> {metrics.assignment3Percentage}%</p>
+                            <p><strong>EF Test Score:</strong> {metrics.EFTestScore}</p>
+                            <p><strong>Learning Certificates Done:</strong> {metrics.learningCertificatesDone?.join(", ")}</p>
+                            <p><strong>Courses Completed:</strong> {metrics.coursesCompleted?.join(", ")}</p>
+                            <p><strong>Mock Evaluation 1 Score:</strong> {metrics.mockEvaluation1Score}</p>
+                            <p><strong>Mock Evaluation 2 Score:</strong> {metrics.mockEvaluation2Score}</p>
+                            <p><strong>Mock Evaluation 3 Score:</strong> {metrics.mockEvaluation3Score}</p>
                         </>
                     )}
                 </div>
@@ -137,4 +270,3 @@ const Score = () => {
 };
 
 export default Score;
-
