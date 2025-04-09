@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../store/store";
-import { updateUser } from "../slices/authSlice";
+import { RootState } from "../reduxtoolkit/store/store";
+import { updateUser } from "../reduxtoolkit/slices/authSlice";
 import "./Profile.scss";
 
 const Profile = () => {
     const dispatch = useDispatch();
     const user = useSelector((state: RootState) => state.auth.currentUser);
-    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", user)
     const [isEditing, setIsEditing] = useState(false);
     const [editedUser, setEditedUser] = useState(user);
 

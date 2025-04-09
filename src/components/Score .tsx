@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../store/store";
-import { updateUser } from "../slices/authSlice";
+import { RootState } from "../reduxtoolkit/store/store";
+import { updateUser } from "../reduxtoolkit/slices/authSlice";
 import "./Score.scss";
 
 const Score = () => {
