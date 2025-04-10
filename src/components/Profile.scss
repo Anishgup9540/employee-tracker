@@ -1,100 +1,99 @@
 .profile-page {
-    max-width: 700px;
-    margin: 3rem auto;
-    padding: 2rem;
-    background-color: #fff;
-    border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    font-family: "Segoe UI", sans-serif;
-    color: #333;
+    max-width: 800px;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.04);
+}
 
-    .profile-heading {
-        text-align: center;
-        font-size: 2rem;
-        margin-bottom: 2rem;
-        color: #222;
+.profile-heading {
+    font-size: 1.6rem;
+    margin-bottom: 1.4rem;
+    text-align: center;
+    color: #2c3e50;
+}
+
+.profile-info {
+    margin-bottom: 1.5rem;
+
+    p {
+        margin: 0.3rem 0;
+        font-size: 0.95rem;
+        color: #333;
     }
 
-    .profile-info {
-        display: flex;
-        flex-direction: column;
-        gap: 1.25rem;
+    input {
+        margin-left: 0.4rem;
+        padding: 0.35rem 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        display: block;
+        margin-top: 0.3rem;
+        margin-bottom: 0.8rem;
+        width: 100%;
+        max-width: 400px;
+    }
+}
 
-        label {
-            display: flex;
-            flex-direction: column;
-            font-size: 1rem;
-            color: #444;
+.profile-image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
 
-            input {
-                margin-top: 0.4rem;
-                padding: 0.6rem;
-                font-size: 1rem;
-                border-radius: 8px;
-                border: 1px solid #ccc;
-                transition: border-color 0.3s ease;
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
 
-                &:focus {
-                    border-color: #007bff;
-                    outline: none;
-                }
-            }
-        }
+.profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
 
-        p {
-            font-size: 1rem;
-
-            strong {
-                color: #111;
-            }
-        }
-
-        .performance-metrics {
-            margin-top: 1.5rem;
-            background-color: #f7f9fc;
-            padding: 1rem;
-            border-radius: 12px;
-            border: 1px solid #dfe4ea;
-
-            h3 {
-                font-size: 1.2rem;
-                margin-bottom: 0.75rem;
-                color: #007bff;
-            }
-
-            p {
-                margin: 0.3rem 0;
-            }
-        }
+    th,
+    td {
+        text-align: left;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid #eaeaea;
+        font-size: 0.95rem;
+        color: #2c3e50;
+        vertical-align: top;
     }
 
-    .profile-buttons {
-        margin-top: 1.5rem;
-        display: flex;
-        justify-content: flex-end;
-        gap: 1rem;
+    th {
+        width: 30%;
+        background-color: #f4f6f8;
+        font-weight: 600;
+    }
 
-        button {
-            padding: 0.6rem 1.2rem;
-            font-size: 1rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            background-color: #007bff;
-            color: #fff;
+    tr:last-child td {
+        border-bottom: none;
+    }
+}
 
-            &:hover {
-                background-color: #0056b3;
-            }
+.profile-buttons {
+    margin-top: 1.8rem;
+    text-align: center;
 
-            &:last-child {
-                background-color: #6c757d;
+    button {
+        padding: 0.5rem 1rem;
+        margin: 0 0.4rem;
+        border: none;
+        border-radius: 6px;
+        background-color: #3498db;
+        color: white;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
 
-                &:hover {
-                    background-color: #5a6268;
-                }
-            }
+        &:hover {
+            background-color: #2980b9;
         }
     }
 }

@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import "./Navbar.scss";
 import { logout } from "../reduxtoolkit/slices/authSlice";
 import { RootState } from "../reduxtoolkit/store/store";
+import "./Navbar.scss";
 
 const Navbar = () => {
     const dispatch = useDispatch();
